@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 3.0//EN" "http://www.jboss.org/j2ee/dtd/jboss_3_0.dtd">
+
+<jboss>
+
+   <unauthenticated-principal>nobody</unauthenticated-principal>
+
+   <enterprise-beans>
+
+      <session>
+         <ejb-name></ejb-name>
+         <jndi-name></jndi-name>
+         <local-jndi-name></local-jndi-name>
+      </session>
+
+   </enterprise-beans>
+
+   <resource-managers>
+   </resource-managers>
+
+    <!-- Configure all containers to be secured under the "hades" security domain -->
+    <security-domain>java:/jaas/DefaultDbRealm</security-domain>
+
+</jboss>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<project name="Corvus" default="distribute" basedir=".">
+
+	<!-- Piazza Build-->
+	<target name="distribute">
+		<ant dir="../../Commons/ant" target="distribute"/> 			
+		<ant dir="../../Corvus/ant" target="distribute"/>
+		<ant dir="../../Corvus.Main/ant" target="distribute"/>
+		<ant dir="../../Corvus.Admin/ant" target="distribute"/>
+	</target>
+
+	<target name="deploy">
+		<ant dir="../../Corvus.Main/ant" target="deploy"/>
+		<ant dir="../../Corvus.Admin/ant" target="deploy"/>
+		<ant dir="../../Corvus.Main.Admin/ant" target="deploy"/>
+		<ant dir="../../Corvus/ant" target="deploy"/>
+	</target>
+
+	<target name="backup">
+		<zip destfile="../piazza.zip" basedir="../../" excludes="**/dist/**,**/build/**,**/bin/**"/>
+	</target>
+</project>

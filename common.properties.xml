@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+	<!-- global properties to control javac & javadoc source version in Apache Ant 1.7.0 -->
+	<ant><build><javac><source>1.5</source></javac></build></ant>
+	<vendor>CECID, The University of Hong Kong</vendor>
+</properties>

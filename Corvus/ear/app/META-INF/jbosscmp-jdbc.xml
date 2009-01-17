@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jbosscmp-jdbc PUBLIC "-//JBoss//DTD JBOSSCMP-JDBC 3.0//EN" "http://www.jboss.org/j2ee/dtd/jbosscmp-jdbc_3_0.dtd">
+
+<jbosscmp-jdbc>
+   <defaults>
+     <datasource>java:/DefaultDS</datasource>
+     <datasource-mapping>PostgreSQL 7.2</datasource-mapping>
+     <!--preferred-relation-mapping>PLEASE_MODIFY_THIS</preferred-relation-mapping-->
+     <create-table>false</create-table>
+     <remove-table>false</remove-table>
+   </defaults>
+
+   <enterprise-beans>
+
+      <!--entity>
+         <ejb-name>Testing</ejb-name>
+         <table-name>testing</table-name>
+
+         <cmp-field>
+            <field-name>test</field-name>
+            <column-name>test</column-name>
+
+        </cmp-field>
+
+      </entity-->
+
+   </enterprise-beans>
+
+</jbosscmp-jdbc>
