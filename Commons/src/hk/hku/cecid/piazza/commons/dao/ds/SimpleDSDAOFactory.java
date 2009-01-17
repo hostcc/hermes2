@@ -215,5 +215,17 @@ public class SimpleDSDAOFactory extends DataSourceDAOFactory {
                 throws SQLException {
             return DriverManager.getConnection(url, username, password);
         }
+
+        /* Required for JDK 1.6 */
+        public boolean isWrapperFor(Class c)
+                throws SQLException {
+            return false;
+        };
+        
+        /* Required for JDK 1.6 */
+        public Object unwrap(Class c)
+                throws SQLException {
+            return c;
+        };
     }
 }
