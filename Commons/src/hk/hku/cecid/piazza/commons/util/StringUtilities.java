@@ -322,12 +322,6 @@ public final class StringUtilities {
         }
         else {
             String s = getExceptionString(e);
-            Throwable cause = e.getCause();
-            while (cause != null) {
-                s += StringUtilities.LINE_SEPARATOR + "\tby "
-                  + getExceptionString(cause);
-                cause = cause.getCause();
-            }
             return s;
         }
     }
