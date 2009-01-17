@@ -403,30 +403,6 @@ public class DataFactory
 	}	
 	
 	/**
-	 * Create an instance of <code>SFRMStatusQueryData</code>  From the 
-	 * XML property tree.  
-	 * 
-	 * @param t The property tree to import the data.
-	 * @return
-	 * 			A new instance of <code>SFRMStatusQueryData</code> with data imported from the property tree. 
-	 */ 	 
-	public SFRMStatusQueryData
-	createSFRMStatusQueryDataFromXML(PropertyTree t)
-	{
-		if (t == null)
-			throw new NullPointerException("The property tree is missing.");
-		// Create return object.
-		SFRMStatusQueryData ret = new SFRMStatusQueryData();
-		// All key prefix
-		final String[] 	 prefix = { SFRMStatusQueryData.PARAM_PREFIX, SFRMStatusQueryData.CONFIG_PREFIX };
-		// All key set
-		final String[][] keySet = { SFRMStatusQueryData.PARAM_KEY_SET, SFRMStatusQueryData.CONFIG_KEY_SET };
-		// Load all key-value pair from XML.
-		this.loadKVPairDataFromXML(ret, t, prefix, keySet);
-		return ret;
-	}
-	
-	/**
 	 * Create an instance of <code>EBMSMessageHistoryRequestData</code> from the 
 	 * XML property tree.  
 	 * 
@@ -486,99 +462,6 @@ public class DataFactory
 			
 		this.loadKVPairDataFromXML(data, t, prefix, keySet);
 		return data;
-	}
-	
-	/**
-	 * Create an instance of <code>MessageStatusRequestData</code> From a 
-	 * file written in XML format.
-	 * 
-	 * @param filename The file to load the message status request data.
-	 * @return
-	 * 			A new instance of <code>MessageStatusRequestData</code> 
-	 * 			with data imported from the file with name <code>filename</code>
-	 * @throws ComponentException
-	 *			When unable to load the file or invalid file format.			
-	 */
-	public static MessageStatusRequestData
-	createMessageStatusDataFromXML(String filename) throws ComponentException
-	{
-		if (filename == null)
-			throw new NullPointerException("The filename is missing.");
-		try{
-			PropertyTree t = new PropertyTree(new File(filename).toURL());
-			return createMessageRequestStatusDataFromXML(t);
-		}catch(Exception e){
-			throw new ComponentException("Unable to create property tree", e);
-		}
-	}
-	
-	/**
-	 * Create an instance of <code>MessageStatusRequestData</code> From the 
-	 * XML property tree.  
-	 * 
-	 * @param t The property tree to import the data.
-	 * @return
-	 * 			A new instance of <code>MessageStatusRequestData</code> 
-	 * 			with data imported from the property tree. 
-	 * @throws UtilitiesException
-	 * 			When the data factory is unable to import the data from the property
-	 * 			tree.
-	 */
-	public static MessageStatusRequestData 
-	createMessageRequestStatusDataFromXML(PropertyTree t) throws UtilitiesException
-	{
-		if (t == null)
-			throw new NullPointerException("The property tree is missing.");
-		// Create return object.
-		MessageStatusRequestData ret = new MessageStatusRequestData();
-		// variable decl
-		int len = MessageStatusRequestData.PARAM_KEY_SET.length; 		
-		String [] valueSet = new String[len];				
-		// Extract the key param set.
-		for (int i = 0; i < len; i++){				
-			valueSet[i] = t.getProperty(
-				MessageStatusRequestData.PARAM_PREFIX + "/" 
-			  + MessageStatusRequestData.PARAM_KEY_SET[i]);
-		}		
-		// Filling all string-typed param.
-		ret.setPartnershipId (valueSet[0]);
-		ret.setChannelType	 (valueSet[1]);
-		ret.setChannelId	 (valueSet[2]);
-		ret.setFolderName	 (valueSet[3]);
-		ret.setFileName		 (valueSet[4]);
-		ret.setConversationId(valueSet[8]);
-		ret.setMessageId     (valueSet[9]);
-		ret.setMessageType	 (valueSet[10]);
-		ret.setMessageStatus (valueSet[11]);
-		ret.setProtocol      (valueSet[12]);
-		ret.setLocale        (valueSet[13]);
-		// Filling all time-stamp.		
-		if (!DataFactory.isNullOrEmpty(valueSet[5]))
-			ret.setFromTimestamp(DateUtil.UTC2Calendar(valueSet[5]));
-		if (!DataFactory.isNullOrEmpty(valueSet[6]))
-			ret.setToTimestamp(DateUtil.UTC2Calendar(valueSet[6]));
-			
-		// Filling all big integer set.
-		if (!DataFactory.isNullOrEmpty(valueSet[7]))
-			ret.setNumOfRecords	 (new BigInteger(valueSet[7]));		
-		if (!DataFactory.isNullOrEmpty(valueSet[14]))
-			ret.setLevelOfDetails(new BigInteger(valueSet[14]));
-		if (!DataFactory.isNullOrEmpty(valueSet[15]))	
-			ret.setOffset        (new BigInteger(valueSet[15]));
-		
-		len = MessageStatusRequestData.CONFIG_KEY_SET.length; 		
-		valueSet = new String[len];
-		// Now Extract the configuration parameter set.
-		for (int i = 0; i < len; i++){
-			valueSet[i] = t.getProperty(
-				MessageStatusRequestData.CONFIG_PREFIX + "/"
-			  + MessageStatusRequestData.CONFIG_KEY_SET[i]);
-		}
-		// Filling
-		ret.setWSEndpoint(valueSet[0]);
-		ret.setUsername  (valueSet[1]);
-		ret.setPassword  (valueSet[2]);
-		return ret;
 	}
 	
 	/*
