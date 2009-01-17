@@ -41,7 +41,10 @@ public class GenericException extends Exception {
      * @param cause the cause of this exception.
      */
     public GenericException(Throwable cause) {
-        super(cause);
+        /* JDK 1.3 doesn't have GenericException (Throwable)
+         * constructor - call GenericException (String) one
+         */
+        super (cause.toString());
     }
 
     /**
@@ -51,7 +54,10 @@ public class GenericException extends Exception {
      * @param cause the cause of this exception.
      */
     public GenericException(String message, Throwable cause) {
-        super(message, cause);
+        /* JDK 1.3 doesn't have GenericException (String, Throwable)
+         * constructor - call GenericException (String) one
+         */
+		super (message + StringUtilities.LINE_SEPARATOR + cause.toString());
     }
 
     /**
