@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+	<build>
+		<dir location="../build" />
+	</build>
+	<dist>
+		<dir location="../dist" />
+		<jar name="piazza-commons-ext" />
+		<files>lib/*.jar</files>
+	</dist>
+	<project>
+		<dir location="../"/>
+		<base location="../../"/>
+		<class>
+			<lib location="../lib" />
+            <ext location="../../" files="CommonsExtension/dist/lib/*.jar,CommonsExtension/ext/*.jar"/>
+			<import location="" />
+			<path/>
+		</class>
+		<source>
+			<path>../src</path>
+		</source>
+		<test>
+			<!--			<path location="../test" /> -->
+		</test>
+	</project>
+</properties>
