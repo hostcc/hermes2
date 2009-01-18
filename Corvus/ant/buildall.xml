@@ -5,6 +5,7 @@
 	<!-- Piazza Build-->
 	<target name="distribute">
 		<ant dir="../../Commons/ant" target="distribute"/> 			
+		<ant dir="../../CommonsExtension/ant" target="distribute"/> 			
 		<ant dir="../../Corvus/ant" target="distribute"/>
 		<ant dir="../../Corvus.Main/ant" target="distribute"/>
 		<ant dir="../../Corvus.Admin/ant" target="distribute"/>
