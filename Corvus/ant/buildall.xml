@@ -8,6 +8,13 @@
 		<ant dir="../../Corvus/ant" target="distribute"/>
 		<ant dir="../../Corvus.Main/ant" target="distribute"/>
 		<ant dir="../../Corvus.Admin/ant" target="distribute"/>
+		<ant dir="../../CorvusAS2/ant" target="distribute"/>
+		<ant dir="../../CorvusAS2.Admin/ant" target="distribute"/>
+		<ant dir="../../ebxml-pkg/ant" target="distribute"/>
+		<ant dir="../../CorvusEbMS/ant" target="distribute"/>
+		<ant dir="../../CorvusEbMS.Admin/ant" target="distribute"/>
+		<ant dir="../../Corvus.Main.Admin/ant" target="distribute"/>
+		<ant dir="../../Corvus.WSClient/ant" target="distribute"/>
 	</target>
 
 	<target name="deploy">
