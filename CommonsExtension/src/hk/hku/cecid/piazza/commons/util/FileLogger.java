@@ -130,7 +130,7 @@ public class FileLogger extends Component
         logStackTrace(t);
     }
 
-    public void log(String s)
+    public void log(Object s)
     {
         if(logStream != null)
             logStream.println(s);
