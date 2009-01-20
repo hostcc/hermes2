@@ -24,7 +24,7 @@ import javax.activation.FileDataSource;
 import hk.hku.cecid.corvus.ws.data.Payload;
 
 import hk.hku.cecid.piazza.commons.data.Data;
-import hk.hku.cecid.piazza.commons.util.FileLogger;
+import hk.hku.cecid.piazza.commons.util.Logger;
 import hk.hku.cecid.piazza.commons.soap.SOAPSender;
 
 /**
@@ -68,7 +68,7 @@ public abstract class MessageSender extends SOAPSender {
 	 * 					be sent and some performance parameter.
 	 * @param p			The partnership properties used for sending.			
 	 */
-	public MessageSender(FileLogger l, Data m, Data p){
+	public MessageSender(Logger l, Data m, Data p){
 		super(l,m);
 		this.ps = p;
 	}		
