@@ -20,7 +20,7 @@ import javax.xml.soap.SOAPException;
 import hk.hku.cecid.corvus.ws.data.Payload;
 import hk.hku.cecid.piazza.commons.data.Data;
 import hk.hku.cecid.piazza.commons.soap.SOAPSender;
-import hk.hku.cecid.piazza.commons.util.FileLogger;
+import hk.hku.cecid.piazza.commons.util.Logger;
 
 /**
  * The <code>MessageReceiver</code> is the abstract class which is used to send 
@@ -98,7 +98,7 @@ public class MessageReceiver extends SOAPSender {
 	 * @param m			The message properties including how many message need to 
 	 * 					be sent and some performance parameter.
 	 */
-	public MessageReceiver(FileLogger l, Data m){
+	public MessageReceiver(Logger l, Data m){
 		super(l,m);
 	}
 	
