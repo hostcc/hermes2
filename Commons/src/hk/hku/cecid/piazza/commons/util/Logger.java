@@ -91,4 +91,8 @@ public interface Logger {
      * @param throwable the associated exception.
      */
     public void info(Object msg, Throwable throwable);
+
+    public void log(Object msg);
+
+    public void logStackTrace(Throwable e);
 }
