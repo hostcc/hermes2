@@ -249,4 +249,15 @@ public class LoggerLog4j extends PersistentComponent
 			return false;
 		}
 	}
+
+    public void log (Object msg)
+    {
+        info (msg);
+    }
+
+    public void logStackTrace (Throwable throwable)
+    {
+        (logger == null ? Logger.getLogger(Caller.getName()) : logger)
+            .fatal(throwable);
+    }
 }
