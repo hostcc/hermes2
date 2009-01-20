@@ -124,4 +124,14 @@ public class ConsoleLogger extends Component implements Logger {
     public static ConsoleLogger getInstance() {
         return instance;
     }
+
+    public void log (Object msg)
+    {
+        info (msg);
+    }
+
+    public void logStackTrace (Throwable throwable)
+    {
+        log (System.out, "STACK", null, throwable);
+    }
 }
