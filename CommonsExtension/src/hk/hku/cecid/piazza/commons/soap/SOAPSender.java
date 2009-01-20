@@ -11,7 +11,7 @@ public abstract class SOAPSender extends Component
     implements Runnable
 {
     protected static final String NS_PREFIX = "tns";
-    protected FileLogger log;
+    protected Logger log;
     protected Data properties;
     protected SOAPMessage request;
     protected SOAPMessage response;
@@ -52,7 +52,7 @@ public abstract class SOAPSender extends Component
         userObj = null;
     }
 
-    public SOAPSender(FileLogger l, Data d)
+    public SOAPSender(Logger l, Data d)
     {
         request = null;
         response = null;
@@ -74,7 +74,7 @@ public abstract class SOAPSender extends Component
         }
     }
 
-    public SOAPSender(FileLogger l, Data d, String endpoint)
+    public SOAPSender(Logger l, Data d, String endpoint)
     {
         this(l, d);
         try
@@ -87,7 +87,7 @@ public abstract class SOAPSender extends Component
         }
     }
 
-    public SOAPSender(FileLogger l, Data d, URL endpoint)
+    public SOAPSender(Logger l, Data d, URL endpoint)
     {
         this(l, d);
         serviceEndPoint = endpoint;
