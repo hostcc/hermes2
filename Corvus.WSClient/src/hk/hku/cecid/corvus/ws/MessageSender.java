@@ -160,9 +160,6 @@ public abstract class MessageSender extends SOAPSender {
 					ap.setContentType(payload.getContentType());
 					
 					this.request.addAttachmentPart(ap);
-					if (this.log != null){
-						this.log.info("Adding Payload " + i + " " + payload.getFilePath());
-					}
 				} else{
 					if (this.log != null){
 						this.log.error("Unable to create attachment part in SOAP request at :" + i);
