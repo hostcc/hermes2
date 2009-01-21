@@ -19,6 +19,9 @@ import java.util.Iterator;
 import javax.xml.soap.AttachmentPart;
 import javax.xml.soap.SOAPException;
 import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import java.io.InputStream;
+import java.io.OutputStream;
 import javax.activation.FileDataSource;
 
 import hk.hku.cecid.corvus.ws.data.Payload;
@@ -125,18 +128,40 @@ public abstract class MessageSender extends SOAPSender {
 			return false;
 
 		for (int i = 0; i < payloads.length; i++){
-			if (payloads[i] != null){
+			final Payload payload = payloads[i];
+			if (payload != null){
 				AttachmentPart ap = this.request.createAttachmentPart();
 				if (ap != null){
+					String fpath = payload.getFilePath();
 					// Create file datasource.							
-					FileDataSource fileDS = null;
-					fileDS = new FileDataSource(new File(payloads[i].getFilePath()));
-					ap.setDataHandler(new DataHandler(fileDS));
-					ap.setContentType(payloads[i].getContentType());
+					DataSource DS = null;
+					if (fpath != null) {
+						DS = new FileDataSource(new File(fpath));
+					} else {
+                        DS = new DataSource() {
+                            public InputStream getInputStream() {
+                                return payload.getInputStream();
+                            }
+
+                            public OutputStream getOutputStream() {
+                                return null;
+                            }
+
+                            public String getContentType() {
+                                return payload.getContentType();
+                            }
+
+                            public String getName() {
+                                return "";
+                            }
+                        };
+					}
+					ap.setDataHandler(new DataHandler(DS));
+					ap.setContentType(payload.getContentType());
 					
 					this.request.addAttachmentPart(ap);
 					if (this.log != null){
-						this.log.info("Adding Payload " + i + " " + payloads[i].getFilePath());
+						this.log.info("Adding Payload " + i + " " + payload.getFilePath());
 					}
 				} else{
 					if (this.log != null){
