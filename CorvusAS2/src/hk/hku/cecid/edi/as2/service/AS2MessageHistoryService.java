@@ -101,7 +101,7 @@ public class AS2MessageHistoryService extends WebServicesAdaptor{
 	  private String checkMessageBox(String input)throws SOAPRequestException{
 		  if(input !=null &&
 				  !(input.equalsIgnoreCase("INBOX") ||
-				  !input.equalsIgnoreCase("OUTBOX"))){
+				    input.equalsIgnoreCase("OUTBOX"))){
 			  String errMsg = "Wrong Message Box entered, you have entered: ["+ input+"]";
 			  throw new SOAPRequestException(errMsg);
 		  }else{
