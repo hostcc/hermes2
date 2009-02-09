@@ -42,6 +42,12 @@
 	  <parameter name="is_compress" value="false" />
 	</extension>
 	
+	<extension point="hk.hku.cecid.piazza.corvus.core.httpd.listener" name="AS2 Any Receiver Service">
+	  <parameter name="class" value="hk.hku.cecid.edi.as2.service.AS2AnyMessageReceiverService" />
+	  <parameter name="context" value="/as2/receiver_any" />
+	  <parameter name="is_compress" value="false" />
+	</extension>
+	
 	<extension point="hk.hku.cecid.piazza.corvus.core.httpd.listener" name="AS2 Message History Service">
 		 <parameter name="class" value="hk.hku.cecid.edi.as2.service.AS2MessageHistoryService" />
 		 <parameter name="context" value="/as2/msg_history" />
