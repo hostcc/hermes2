@@ -193,7 +193,25 @@ class IncomingMessage {
                     Iterator algs = dnOption.getValues();
                     while(algs.hasNext() && !isAlgAccepted) {
                         String alg = (String)algs.next();
-                        if (DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA1.equalsIgnoreCase(alg)) {
+                        if (DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA256.equalsIgnoreCase(alg)) {
+                            AS2Processor.core.log.debug("MIC algorithm accepted: "+alg);
+                            digestAlg = SMimeMessage.DIGEST_ALG_SHA256;
+                            micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA256;
+                            isAlgAccepted = true;
+                        }
+                        else if (DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA384.equalsIgnoreCase(alg)) {
+                            AS2Processor.core.log.debug("MIC algorithm accepted: "+alg);
+                            digestAlg = SMimeMessage.DIGEST_ALG_SHA384;
+                            micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA384;
+                            isAlgAccepted = true;
+                        }
+                        if (DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA512.equalsIgnoreCase(alg)) {
+                            AS2Processor.core.log.debug("MIC algorithm accepted: "+alg);
+                            digestAlg = SMimeMessage.DIGEST_ALG_SHA512;
+                            micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA512;
+                            isAlgAccepted = true;
+                        }
+                        else if (DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA1.equalsIgnoreCase(alg)) {
                             AS2Processor.core.log.debug("MIC algorithm accepted: "+alg);
                             digestAlg = SMimeMessage.DIGEST_ALG_SHA1;
                             micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA1;

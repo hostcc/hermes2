@@ -303,6 +303,21 @@
         <td width="60%">
             <select name="sign_algorithm">
                 <xsl:element name="option">                
+                    <xsl:if test="'sha-256'=./sign_algorithm">
+                        <xsl:attribute name="SELECTED"></xsl:attribute>
+                    </xsl:if>sha-256
+                </xsl:element>
+                <xsl:element name="option">
+                    <xsl:if test="'sha-384'=./sign_algorithm">
+                        <xsl:attribute name="SELECTED"></xsl:attribute>
+                    </xsl:if>sha-384
+                </xsl:element>
+                <xsl:element name="option">
+                    <xsl:if test="'sha-512'=./sign_algorithm">
+                        <xsl:attribute name="SELECTED"></xsl:attribute>
+                    </xsl:if>sha-512
+                </xsl:element>
+                <xsl:element name="option">
                     <xsl:if test="'sha1'=./sign_algorithm">
                         <xsl:attribute name="SELECTED"></xsl:attribute>
                     </xsl:if>sha1
@@ -365,6 +380,21 @@
         <td width="40%">MIC Algorithm</td>
         <td width="60%">
             <select name="mic_algorithm">
+                <xsl:element name="option">
+                    <xsl:if test="'sha-256'=./mic_algorithm">
+                        <xsl:attribute name="SELECTED"></xsl:attribute>
+                    </xsl:if>sha-256
+                </xsl:element>
+                <xsl:element name="option">
+                    <xsl:if test="'sha-384'=./mic_algorithm">
+                        <xsl:attribute name="SELECTED"></xsl:attribute>
+                    </xsl:if>sha-384
+                </xsl:element>
+                <xsl:element name="option">
+                    <xsl:if test="'sha-512'=./mic_algorithm">
+                        <xsl:attribute name="SELECTED"></xsl:attribute>
+                    </xsl:if>sha-512
+                </xsl:element>
                 <xsl:element name="option">                
                     <xsl:if test="'sha1'=./mic_algorithm">
                         <xsl:attribute name="SELECTED"></xsl:attribute>

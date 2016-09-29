@@ -30,6 +30,12 @@ public class DispositionNotificationOption {
     public static final String SIGNED_RECEIPT_PROTOCOL_PKCS7 = "pkcs7-signature";
     
     public static final String SIGNED_RECEIPT_MICALG_SHA1 = "sha1";
+
+    public static final String SIGNED_RECEIPT_MICALG_SHA256 = "sha-256";
+
+    public static final String SIGNED_RECEIPT_MICALG_SHA384 = "sha-384";
+
+    public static final String SIGNED_RECEIPT_MICALG_SHA512 = "sha-512";
     
     public static final String SIGNED_RECEIPT_MICALG_MD5 = "md5";
     

@@ -24,11 +24,29 @@ public class AS2PartnershipData extends KVPairData {
 	/** The constant field for 3DES Encryption. */
 	public static final String ALG_ENCRYPT_3DES = "3des";
 
-	/** The constant field for SHA1 Message-Integrity-Check. */	
+	/** The constant field for SHA256 Message-Integrity-Check. */
+	public static final String ALG_MIC_SHA256 = "sha-256";
+
+	/** The constant field for SHA384 Message-Integrity-Check. */
+	public static final String ALG_MIC_SHA384 = "sha-384";
+
+	/** The constant field for SHA512 Message-Integrity-Check. */
+	public static final String ALG_MIC_SHA512 = "sha-512";
+
+	/** The constant field for SHA1 Message-Integrity-Check. */
 	public static final String ALG_MIC_SHA1 = "sha1";
 
 	/** The constant field for MD5 Message-Integrity-Check. */
 	public static final String ALG_MIC_MD5 = "md5";
+
+	/** The constant field for SHA256 Signing. */
+	public static final String ALG_SIGN_SHA256 = "sha-256";
+
+	/** The constant field for SHA384 Signing. */
+	public static final String ALG_SIGN_SHA384 = "sha-384";
+
+	/** The constant field for SHA512 Signing. */
+	public static final String ALG_SIGN_SHA512 = "sha-512";
 
 	/** The constant field for SHA1 Signing. */
 	public static final String ALG_SIGN_SHA1 = "sha1";

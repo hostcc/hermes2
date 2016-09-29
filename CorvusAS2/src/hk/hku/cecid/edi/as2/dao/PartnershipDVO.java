@@ -25,9 +25,21 @@ public interface PartnershipDVO extends DVO {
 
     public static final String ALG_MIC_SHA1     = "sha1";
 
+    public static final String ALG_MIC_SHA256   = "sha-256";
+
+    public static final String ALG_MIC_SHA384   = "sha-384";
+
+    public static final String ALG_MIC_SHA512   = "sha-512";
+
     public static final String ALG_MIC_MD5      = "md5";
 
     public static final String ALG_SIGN_SHA1    = "sha1";
+
+    public static final String ALG_SIGN_SHA256  = "sha-256";
+
+    public static final String ALG_SIGN_SHA384  = "sha-384";
+
+    public static final String ALG_SIGN_SHA512  = "sha-512";
 
     public static final String ALG_SIGN_MD5     = "md5";
 

@@ -108,9 +108,20 @@ public class OutgoingPayloadTask implements ActiveTask {
         if (partnership.isOutboundSignRequired()) {
             AS2Processor.core.log.info("Signing outbound "+as2Message);
             String alg = partnership.getSignAlgorithm();
-            if (alg != null && alg.equalsIgnoreCase(PartnershipDVO.ALG_SIGN_MD5)) {
-                smime.setDigestAlgorithm(SMimeMessage.DIGEST_ALG_MD5);
-            }
+	    if (alg != null) {
+		    if (alg.equalsIgnoreCase(PartnershipDVO.ALG_SIGN_MD5)) {
+			smime.setDigestAlgorithm(SMimeMessage.DIGEST_ALG_MD5);
+		    }
+		    else if (alg.equalsIgnoreCase(PartnershipDVO.ALG_SIGN_SHA256)) {
+			smime.setDigestAlgorithm(SMimeMessage.DIGEST_ALG_SHA256);
+		    }
+		    else if (alg.equalsIgnoreCase(PartnershipDVO.ALG_SIGN_SHA384)) {
+			smime.setDigestAlgorithm(SMimeMessage.DIGEST_ALG_SHA384);
+		    }
+		    else if (alg.equalsIgnoreCase(PartnershipDVO.ALG_SIGN_SHA512)) {
+			smime.setDigestAlgorithm(SMimeMessage.DIGEST_ALG_SHA512);
+		    }
+	    }
             else {
                 smime.setDigestAlgorithm(SMimeMessage.DIGEST_ALG_SHA1);
             }
@@ -153,10 +164,24 @@ public class OutgoingPayloadTask implements ActiveTask {
                               partnership.isOutboundEncryptRequired();
             
             String micAlg = partnership.getMicAlgorithm();
-            if (micAlg !=null && micAlg.equalsIgnoreCase(PartnershipDVO.ALG_MIC_MD5)) {
-                mic = smime.digest(SMimeMessage.DIGEST_ALG_MD5, isSMime);
-                micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_MD5;
-            }
+	    if (micAlg != null) {
+		    if (micAlg.equalsIgnoreCase(PartnershipDVO.ALG_MIC_MD5)) {
+			mic = smime.digest(SMimeMessage.DIGEST_ALG_MD5, isSMime);
+			micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_MD5;
+		    }
+		    else if (micAlg.equalsIgnoreCase(PartnershipDVO.ALG_MIC_SHA256)) {
+			mic = smime.digest(SMimeMessage.DIGEST_ALG_SHA256, isSMime);
+			micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA256;
+		    }
+		    else if (micAlg.equalsIgnoreCase(PartnershipDVO.ALG_MIC_SHA384)) {
+			mic = smime.digest(SMimeMessage.DIGEST_ALG_SHA384, isSMime);
+			micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA384;
+		    }
+		    else if (micAlg.equalsIgnoreCase(PartnershipDVO.ALG_MIC_SHA512)) {
+			mic = smime.digest(SMimeMessage.DIGEST_ALG_SHA512, isSMime);
+			micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA512;
+		    }
+	    }
             else {
                 mic = smime.digest(SMimeMessage.DIGEST_ALG_SHA1, isSMime);
                 micAlg = DispositionNotificationOption.SIGNED_RECEIPT_MICALG_SHA1;

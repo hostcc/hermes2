@@ -86,10 +86,25 @@ public class SMimeMessage {
     public static final String DIGEST_ALG_MD5 = SMIMESignedGenerator.DIGEST_MD5;
     
     /**
-     * Digest algorithm: SHA
+     * Digest algorithm: SHA256
+     */
+    public static final String DIGEST_ALG_SHA256 = SMIMESignedGenerator.DIGEST_SHA256;
+
+    /**
+     * Digest algorithm: SHA384
+     */
+    public static final String DIGEST_ALG_SHA384 = SMIMESignedGenerator.DIGEST_SHA384;
+
+    /**
+     * Digest algorithm: SHA512
+     */
+    public static final String DIGEST_ALG_SHA512 = SMIMESignedGenerator.DIGEST_SHA512;
+
+    /**
+     * Digest algorithm: SHA-1
      */
     public static final String DIGEST_ALG_SHA1 = SMIMESignedGenerator.DIGEST_SHA1;
-    
+
     /**
      * Encryption algorithm: DES EDE3
      */
